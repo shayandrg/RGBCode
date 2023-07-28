@@ -1,81 +1,29 @@
-/* /* .tab-border-bottom-container { */
-    /* background-color: #30ff90; */
-    
-    /* background: linear-gradient(to right, #30ff90 0%, #ed2ded 25%, #c99826 50%, #30ffe6 75%, #30ff90 100%); */
-    /* background: linear-gradient(to right, #30ff90, #ed2ded, #c99826, #30ffe6, #30ff90);
-    animation: rotate 3s infinite linear; */
 .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active::after {
     content: '';
     position: absolute;
     bottom: -1px;
     left: 0;
     right: 0;
-    height: 15px;
-    /* background: linear-gradient(to right, #fc28a8, #03edf9) !important; */
-    /* background: linear-gradient(to right, #30ff90, #ed2ded, #c99826, #30ffe6, #30ff90); */
-    /* animation: glowing 3s infinite linear; */
-    /* animation: glowing 20s linear infinite; */
-    /* animation: rotate 3s linear infinite; */
-    /* background-size: 400%; */
+    height: 3px;
+    z-index: 30;
+    animation: rgb [DURATION]s linear infinite;
+    
+    /* stable 1 */
+    /* background: linear-gradient(90deg, #30ff90, #ed2ded, #c99826, #30ffe6); */
+    background-size: 300% !important;
+    background: linear-gradient(90deg, [TAB_COLORS]);
 
-	background: repeating-linear-gradient(
-			white 0%,
-			white 7.5px,
-			hotpink 7.5px,
-			hotpink 15px,
-			white 15px,
-			white 22.5px,
-			hotpink 22.5px,
-			hotpink 30px);
-	transform: translateX(-20%) translateY(-20%) rotate(-45deg);
-	animation: animate 20s linear infinite;
-
-
-
-/* 
-    opacity: 1;
-    z-index: 6; */
-  }
-  
-  /* .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 0px;
-    transition: opacity 1s;
-    opacity: 0;
-    z-index: 6;
-  } */
-
-  @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+    /* background: linear-gradient(90deg, #fc28a8, #03edf9); */
+    /* background: linear-gradient(90deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b); */
+    /* background: linear-gradient(90deg, #30ff90 0%, #ed2ded 25%, #c99826 50%, #30ffe6 75%, #30ff90 100%); */
+    /* background: linear-gradient(90deg, #30ff90, #ed2ded, #c99826, #30ffe6, #30ff90); */
 }
-@keyframes rotate {
+
+@keyframes rgb {
     from {
-        background-position: -120px;
+        background-position: 150%;
     }
     to {
-        background-position: 0px;
+        background-position: 0%;
     }
-}
-@keyframes rotate2 {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: 0 450px;
-    }
-}
-@keyframes animate {
-	from {
-		background-position: 0;
-	}
-
-	to {
-		background-position: 0 450px;
-	}
 }

@@ -1,51 +1,63 @@
 {
-  "name": "test2",
-  "displayName": "test2",
-  "description": "",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.74.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:test2.helloWorld",
-    "onCommand:test2.active",
-    "onCommand:test2.deActive",
-    "onStartupFinished"
-  ],
-  "main": "./src/main.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "test2.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "test2.active",
-        "title": "active"
-      },
-      {
-        "command": "test2.deActive",
-        "title": "deActive"
-      }
-    ]
-  },
-  "scripts": {
-  },
-  "devDependencies": {
-    "@types/glob": "^8.0.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.74.0",
-    "@vscode/test-electron": "^2.2.0",
-    "eslint": "^8.28.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.1.0",
-    "typescript": "^4.9.3"
-  },
-  "dependencies": {
-    "jsdom": "^20.0.3"
-  }
+    "name": "rgb_code",
+    "displayName": "RGBCode",
+    "description": "make your vscode RGB",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:RGBCode.active",
+        "onCommand:RGBCode.deActive",
+        "onStartupFinished"
+    ],
+    "main": "./src/main.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "RGBCode.active",
+                "title": "active"
+            },
+            {
+                "command": "RGBCode.deActive",
+                "title": "deActive"
+            }
+        ],
+        "configuration": {
+            "title": "RGB Code",
+            "properties": {
+                "rgbCode.palette": {
+                    "type": "string",
+                    "default": "Sunset",
+                    "enum": [ "Sunset", "Instagram" ],
+                    "description": "your favorite color plate for RGB animation"
+                },
+                "rgbCode.duration": {
+                    "type": "float",
+                    "default": "Sunset",
+                    "enum": [ "Sunset", "Instagram" ],
+                    "description": "your favorite co lor plate for RGB animation"
+                }
+            }
+        }
+    },
+    "scripts": {
+    },
+    "devDependencies": {
+        "@types/glob": "^8.0.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "16.x",
+        "@types/vscode": "^1.74.0",
+        "@vscode/test-electron": "^2.2.0",
+        "eslint": "^8.28.0",
+        "glob": "^8.0.3",
+        "mocha": "^10.1.0",
+        "typescript": "^4.9.3"
+    },
+    "dependencies": {
+        "jsdom": "^20.0.3"
+    }
 }
