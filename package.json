@@ -11,7 +11,7 @@
     ],
     "activationEvents": [
         "onCommand:RGBCode.active",
-        "onCommand:RGBCode.deActive",
+        "onCommand:RGBCode.deactive",
         "onStartupFinished"
     ],
     "main": "./src/main.js",
@@ -19,11 +19,13 @@
         "commands": [
             {
                 "command": "RGBCode.active",
-                "title": "active"
+                "title": "Active / Refresh",
+                "category": "RGBCode"
             },
             {
-                "command": "RGBCode.deActive",
-                "title": "deActive"
+                "command": "RGBCode.deactive",
+                "title": "Deactive",
+                "category": "RGBCode"
             }
         ],
         "configuration": {
@@ -33,13 +35,19 @@
                     "type": "string",
                     "default": "Sunset",
                     "enum": [ "Sunset", "Instagram" ],
-                    "description": "your favorite color plate for RGB animation"
+                    "description": "Your favorite color plate for RGB animation"
                 },
                 "rgbCode.duration": {
-                    "type": "float",
-                    "default": "Sunset",
-                    "enum": [ "Sunset", "Instagram" ],
-                    "description": "your favorite co lor plate for RGB animation"
+                    "type": "number",
+                    "default": 3,
+                    "enum": [ 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 ],
+                    "description": "Css animation duration (Seconds)"
+                },
+                "rgbCode.height": {
+                    "type": "number",
+                    "default": 2,
+                    "enum": [ 1, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 4.5, 5 ],
+                    "description": "Slider height (px)"
                 }
             }
         }

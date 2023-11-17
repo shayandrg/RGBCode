@@ -18,6 +18,7 @@ reloadConfig()
 function activate(context) {
 
 	let active = vscode.commands.registerCommand('RGBCode.active', function () {
+
 		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require.main.filename);
 		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
@@ -31,6 +32,8 @@ function activate(context) {
 
 			let activePalette = rgbColorPalettes[config.get('palette')] || rgbColorPalettes.Sunset;
 			css = css.replace(/\[TAB_COLORS\]/g, activePalette.join(', '));
+			css = css.replace(/\[DURATION\]/g, config.get('duration') || 3);
+			css = css.replace(/\[HEIGHT\]/g, config.get('height') || 1);
 
 			const vscodeDOM = new JSDOM(rawHtml);
 			if (isRGBCodeExist) {
@@ -43,7 +46,7 @@ function activate(context) {
 			style.type = 'text/css';
 			style.setAttribute("id", "RGBCode-style-element");
 			style.appendChild(vscodeDOM.window.document.createTextNode(css));
-	
+
 			fs.writeFileSync(htmlFile, vscodeDOM.serialize(), "utf-8");
 			vscode.commands.executeCommand("workbench.action.reloadWindow");
 		} catch(e) {
@@ -51,7 +54,7 @@ function activate(context) {
 		}
 	});
 
-	let deActive = vscode.commands.registerCommand('RGBCode.deActive', function () {
+	let deactive = vscode.commands.registerCommand('RGBCode.deactive', function () {
 
 		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require.main.filename);
@@ -76,10 +79,10 @@ function activate(context) {
 	});
 
 	context.subscriptions.push(active);
-	context.subscriptions.push(deActive);
+	context.subscriptions.push(deactive);
 
 	vscode.workspace.onDidChangeConfiguration(event => {
-        let affected = event.affectsConfiguration("rgbCode.palette");
+        let affected = event.affectsConfiguration("rgbCode");
         if (affected) {
 			reloadConfig()
             vscode.commands.executeCommand("RGBCode.active");
