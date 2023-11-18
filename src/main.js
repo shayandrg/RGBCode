@@ -11,7 +11,7 @@ const rgbColorPalettes = {
 var config = {};
 
 const reloadConfig = () => {
-	config = vscode.workspace.getConfiguration("rgbCode")
+	config = vscode.workspace.getConfiguration("RGBCode")
 }
 reloadConfig()
 
@@ -82,7 +82,7 @@ function activate(context) {
 	context.subscriptions.push(deactive);
 
 	vscode.workspace.onDidChangeConfiguration(event => {
-        let affected = event.affectsConfiguration("rgbCode");
+        let affected = event.affectsConfiguration("RGBCode");
         if (affected) {
 			reloadConfig()
             vscode.commands.executeCommand("RGBCode.active");
