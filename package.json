@@ -3,11 +3,25 @@
     "displayName": "RGBCode",
     "publisher": "shayandrg",
     "description": "make your vscode RGB",
-    "version": "0.0.1",
-    "repository": "https://github.com/shayandrg/RGBCode",
+    "version": "0.0.3",
+    "repository": {
+        "type": "github",
+        "url": "https://github.com/shayandrg/RGBCode"
+    },
+    "homepage": "https://github.com/shayandrg/RGBCode",
     "engines": {
         "vscode": "^1.74.0"
     },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "rgb",
+        "fancy",
+        "animation",
+        "fun",
+        "light"
+    ],
     "categories": [
         "Other"
     ],
@@ -33,19 +47,19 @@
         "configuration": {
             "title": "RGB Code",
             "properties": {
-                "rgbCode.palette": {
+                "RGBCode.palette": {
                     "type": "string",
                     "default": "Sunset",
                     "enum": [ "Sunset", "Instagram" ],
                     "description": "Your favorite color plate for RGB animation"
                 },
-                "rgbCode.duration": {
+                "RGBCode.duration": {
                     "type": "number",
                     "default": 3,
                     "enum": [ 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 ],
                     "description": "Css animation duration (Seconds)"
                 },
-                "rgbCode.height": {
+                "RGBCode.height": {
                     "type": "number",
                     "default": 2,
                     "enum": [ 1, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 4.5, 5 ],
@@ -61,7 +75,6 @@
         "@types/mocha": "^10.0.1",
         "@types/node": "16.x",
         "@types/vscode": "^1.74.0",
-        "@vscode/test-electron": "^2.2.0",
         "eslint": "^8.28.0",
         "glob": "^8.0.3",
         "mocha": "^10.1.0",
