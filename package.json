@@ -1,8 +1,10 @@
 {
-    "name": "rgb_code",
+    "name": "rgb-code",
     "displayName": "RGBCode",
+    "publisher": "shayandrg",
     "description": "make your vscode RGB",
     "version": "0.0.1",
+    "repository": "https://github.com/shayandrg/RGBCode",
     "engines": {
         "vscode": "^1.74.0"
     },
