@@ -2,7 +2,7 @@
   "name": "rgbcode",
   "displayName": "rgbcode",
   "publisher": "shayandrg",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "make your vscode fancy with RGB Lights!",
   "repository": {
     "type": "github",
@@ -43,6 +43,7 @@
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
+    "publish": "pnpm vsce publish --no-dependencies",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",

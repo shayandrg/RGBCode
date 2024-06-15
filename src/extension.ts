@@ -34,13 +34,13 @@ const getWorkspaceRoot = (): string | null => {
 
 const getHtmlFilePath = (): string => {
     const isWin = process.platform.startsWith('win');
-    const workspaceRoot = process.env.VSCODE_CWD;
+    const workspaceRoot = vscode.env.appRoot;
     
     if (!workspaceRoot) {
         throw new Error('No workspace folder found');
     }
 
-    let base = path.resolve(workspaceRoot, 'resources', 'app', 'out', 'vs', 'code');
+    let base = path.resolve(workspaceRoot,  'out', 'vs', 'code');
     const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
     // Adjust path if running in WSL
