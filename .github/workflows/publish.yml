@@ -17,39 +17,22 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: npm ci
 
       - name: Build extension
-        run: pnpm run package
-
-      - name: Check secrets availability
-        run: |
-          echo "Checking secrets availability..."
-          if [ -n "${{ secrets.VSCE_PAT }}" ]; then
-            echo "✓ VSCE_PAT is available"
-          else
-            echo "✗ VSCE_PAT is NOT available"
-          fi
-          if [ -n "${{ secrets.OVSX_PAT }}" ]; then
-            echo "✓ OVSX_PAT is available"
-          else
-            echo "✗ OVSX_PAT is NOT available"
-          fi
+        run: npm run package
 
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v1
         with:
           pat: ${{ secrets.VSCE_PAT }}
           registryUrl: https://marketplace.visualstudio.com
+          dependencies: false
 
       - name: Publish to Open VSX Registry
         uses: HaaLeo/publish-vscode-extension@v1
         with:
           pat: ${{ secrets.OVSX_PAT }}
           registryUrl: https://open-vsx.org
+          dependencies: false
