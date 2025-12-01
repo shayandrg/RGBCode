@@ -28,6 +28,20 @@ jobs:
       - name: Build extension
         run: pnpm run package
 
+      - name: Check secrets availability
+        run: |
+          echo "Checking secrets availability..."
+          if [ -n "${{ secrets.VSCE_PAT }}" ]; then
+            echo "✓ VSCE_PAT is available"
+          else
+            echo "✗ VSCE_PAT is NOT available"
+          fi
+          if [ -n "${{ secrets.OVSX_PAT }}" ]; then
+            echo "✓ OVSX_PAT is available"
+          else
+            echo "✗ OVSX_PAT is NOT available"
+          fi
+
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v1
         with:
